@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    {{title}}
+{% endblock title %}
+    
+
+
+{% block header %}
+    <h1 style="text-align: center;">{{header}}</h1><hr>
+{% endblock header %}
+    
+
+
+
+{% block content %}
+   <form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        
+        {% for form in createPost %}
+            <h6>{{form.label}}</h6>
+            {{form}}
+        {% endfor %}
+            
+    </div>
+    <button class="btn btn-primary">Send</button>
+   </form> 
+{% endblock content %}
+    

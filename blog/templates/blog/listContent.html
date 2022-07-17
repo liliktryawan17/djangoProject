@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    {{title}}
+{% endblock title %}
+    
+
+{% block header %}
+    <h1 style="text-align: center;">{{header}}</h1><hr>
+{% endblock header %}
+    
+
+
+{% block content %}
+<a href="{% url 'blog:create' %}" class="btn btn-primary">Tambah</a>
+<table class="table">
+    <thead>
+      <tr style="text-align: center;">
+        <th scope="col">No.</th>
+        <th scope="col">Penulis</th>
+        <th scope="col">Judul</th>
+        <th scope="col">Kategori</th>
+        <th scope="col">Konten</th>
+        <th colspan="3">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        
+        {% for data in listPost %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{data.author}}</td>
+                <td>{{data.judul}}</td>
+                <td>{{data.kategori}}</td>
+                <td>{{data.konten | truncatechars:50}}</td>
+                <td><a href="{% url 'blog:delete' data.id %}" class="btn btn-danger">Hapus</a></td>
+                <td><a href="{% url 'blog:update' data.id %}" class="btn btn-warning">Edit</a></td>
+                <td><a href="{% url 'blog:detail' data.slug %}" class="btn btn-primary">Detail</a></td>
+            </tr>
+        {% endfor %}
+            
+    </tbody>
+</table>
+{% endblock content %}
+    

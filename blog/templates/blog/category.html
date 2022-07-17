@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    {{title}}
+{% endblock title %}
+    
+
+{% block content %}
+    <hr>
+    <ul class="nav">
+        <li class="nav-item">
+            <a href="{% url 'blog:index' %}" class="nav-link">All Kategori</a>
+        </li>
+        
+        {% for contentCategory in Category %}
+        <li class="nav-item">
+            <a href="{% url 'blog:category' contentCategory.kategori %}" class="nav-link">{{contentCategory.kategori}}</a>
+        </li>
+        {% endfor %}  
+    </ul><br>
+
+    
+    {% for Content in Post %}
+        <h3><a href="{% url 'blog:detail' Content.slug %}">{{Content.judul}}</h3></a>
+        <p>{{Content.konten | truncatechars:250}} <a href="{% url 'blog:detail' Content.slug %}">more</a></p>
+    {% endfor %}
+        
+{% endblock content %}
+    

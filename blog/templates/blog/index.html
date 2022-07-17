@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    {{title}}
+{% endblock title %}
+    
+
+{% block header %}
+    <h1 style="text-align: center;">
+        Selamat datang di{{header}}
+    </h1><hr>
+{% endblock header %}
+
+
+{% block content %}
+
+    <ul class="nav">      
+        {% for contentCategory in Category %}
+            <li class="nav-item"></li>
+                <a href="{% url 'blog:category' contentCategory.kategori %}" class="nav-link">{{contentCategory.kategori}}</a>
+            </li>
+        {% endfor %}      
+    </ul><br>
+    
+    {% for postContent in Post %}
+        <h3><a href="{% url 'blog:detail' postContent.slug %}">{{postContent.judul}}</a></h3>
+        <p>{{postContent.konten | truncatechars:250}}<a href="{% url 'blog:detail' postContent.slug %}">more</a></p>
+    {% endfor %}
+        
+    
+{% endblock content %}
+    
+    

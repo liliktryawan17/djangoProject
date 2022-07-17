@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    {{detailPost.judul}}
+{% endblock title %}
+
+
+{% block header %}
+    <p>>>{{detailPost.kategori}}</p>
+    <h1 style="text-align: center;">{{detailPost.judul}}</h1>
+    <p style="text-align: center;">Penulis: {{detailPost.author}}</p>
+    <hr>
+{% endblock header %}
+
+
+{% block content %}
+    {{detailPost.konten}}
+{% endblock content %}
+    
+    
+    
