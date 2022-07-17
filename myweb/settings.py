@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'myweb.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'form_modelstyling',
+        'NAME': 'django_project',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',
